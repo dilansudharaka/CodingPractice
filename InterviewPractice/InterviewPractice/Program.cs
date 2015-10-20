@@ -10,7 +10,8 @@ namespace InterviewPractice
     {
         static void Main(string[] args)
         {
-            StringOperations.Go();
+            //StringOperations.Go();
+            ArrayOperations.Go();
         }
 
         private class TreeOperations
@@ -44,6 +45,20 @@ namespace InterviewPractice
                 //string longestPalindrome = StringManipulations.GetLongestPalindromicSubstring("forgeeksskeegfor");
 
                 StringManipulations.PrintAllPossibleStringMadeUsingSpaces("ABCD");
+            }
+        }
+
+        private class ArrayOperations
+        {
+            public static void Go()
+            {
+                // Array.FindFourElementsMatchesTheSum(new int[] { 3, 4, 7, 1, 12, 9 });
+
+                // Array.FindLongestPathInmatrix(new int[,] { { 1, 2, 9 }, { 5, 3, 8 }, { 4, 6, 7 } });
+
+                // Array.MaxSumWhileRotating(new int[] { 10, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+
+                Array.FindSymmetricPair_2(new int[,] { { 11, 20 }, { 30, 40 }, { 5, 10 }, { 40, 30 }, { 10, 5 } });//
             }
         }
     }
