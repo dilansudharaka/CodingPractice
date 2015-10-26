@@ -11,7 +11,8 @@ namespace InterviewPractice
         static void Main(string[] args)
         {
             //StringOperations.Go();
-            ArrayOperations.Go();
+            //ArrayOperations.Go
+            LinkListOperations.Go();
         }
 
         private class TreeOperations
@@ -48,6 +49,22 @@ namespace InterviewPractice
             }
         }
 
+        private class LinkListOperations
+        {
+            public static void Go()
+            {
+                //ListNode<int> root = Linklist<int>.CreateListUsingArray(new List<int> { 1, 2, 3, 4,5 });
+
+                ////Linklist.ReverseList(ref root);
+                //Linklist<int>.RemapToEnd(root);
+                //Linklist<int>.DisplayList(root);
+
+                ListNode<int> root = Linklist<int>.CreateListUsingArray(new List<int> { 10,40,52,30,67,12,89 });
+                ListNode<int> newRoot = Linklist<int>.Rearrange(root);
+                Linklist<int>.DisplayList(newRoot);
+            }
+        }
+
         private class ArrayOperations
         {
             public static void Go()
@@ -58,7 +75,9 @@ namespace InterviewPractice
 
                 // Array.MaxSumWhileRotating(new int[] { 10, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 
-                Array.FindSymmetricPair_2(new int[,] { { 11, 20 }, { 30, 40 }, { 5, 10 }, { 40, 30 }, { 10, 5 } });//
+                // Array.FindSymmetricPair_2(new int[,] { { 11, 20 }, { 30, 40 }, { 5, 10 }, { 40, 30 }, { 10, 5 } });//
+
+                Array.FindMaxSubArrayWithKLength(new int[] { 1, 12, -5, -6, 50, 3 }, 4);
             }
         }
     }

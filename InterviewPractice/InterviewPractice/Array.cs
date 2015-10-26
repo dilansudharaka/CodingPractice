@@ -178,5 +178,92 @@ namespace InterviewPractice
             }
         }
         #endregion
+
+        #region Find the largest subarray with 0 sum
+        public static void FindLargestSubArrayWithSum0(int[] input)
+        {
+            int startIndex = 0;
+            int Maxlength = 0;
+            Dictionary<int, int> sumDictionary = new Dictionary<int, int>();
+            int sum = 0;
+            int currentLength = 0;
+            for(int i=0; i< input.Length; i++)
+            {
+                sum += input[i];
+                if(i== 0 && input[i] == 0)
+                {
+                    startIndex = 0;
+                    currentLength = 1;
+                }
+
+                if(sum == 0)
+                {
+                    currentLength = i + 1;
+                    if(currentLength > Maxlength)
+                    {
+                        Maxlength = currentLength;
+                    }
+                }
+
+                else if(sumDictionary.ContainsKey(sum))
+                {
+                    int previousIndex = sumDictionary[sum] + 1;
+                    currentLength = i - previousIndex + 1 ;
+                    if(Maxlength < currentLength)
+                    {
+                        startIndex = previousIndex;
+                        Maxlength = currentLength;
+                    }
+                }
+                else
+                {
+                    sumDictionary.Add(sum, i);
+                }
+            }
+
+            Console.WriteLine("Elements are ");
+            for (int i = startIndex, j = 1; j < Maxlength; j++)
+            {
+                Console.Write(input[i++] + ",");
+            }
+        }
+        #endregion
+
+        #region Find maximum average subarray of k length
+        public static void FindMaxSubArrayWithKLength(int[] array, int k)
+        {
+            int[] newArray = new int[array.Length - k + 1];
+            int sum = 0;
+            for(int i=0; i< array.Length; i++)
+            {
+                sum += array[i];
+                if(i >= k -1 )
+                {
+                    if(i-k >= 0)
+                    {
+                        sum -= array[i - k];
+                    }
+                    
+                    newArray[i - k + 1] = sum;
+                }
+            }
+
+            int startIndex = 0;
+            int currentMaxSum = newArray[0];
+            for(int i=1; i< newArray.Length; i++)
+            {
+                if(newArray[i] > currentMaxSum)
+                {
+                    currentMaxSum = newArray[i];
+                    startIndex = i;
+                }
+            }
+
+            for(int i= startIndex; i< startIndex + k; i++)
+            {
+                Console.Write(array[i] + ", ");
+            }
+        }
+        #endregion
     }
 }
