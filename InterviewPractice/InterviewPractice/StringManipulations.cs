@@ -477,5 +477,106 @@ namespace InterviewPractice
             return finalStrings;
         }
         #endregion
+
+        #region FindAllPermutaionsOfSmallerStringWithinLargerString
+        public static void PrintAllPermutationsOfSmallerString(string smaller,string larger)
+        {
+            if(string.IsNullOrEmpty(smaller) || string.IsNullOrEmpty(larger) ||
+                larger.Length < smaller.Length)
+            {
+                return;
+            }
+
+            int[] smallerArray = new int[256];
+            for(int i=0; i<smaller.Length; i++)
+            {
+                smallerArray[smaller[i]]++;
+            }
+
+            StringBuilder permutation = new StringBuilder();
+            for (int i=0; i<larger.Length; i++)
+            {                
+                if(i < smaller.Length)
+                {
+                    permutation.Append(larger[i]);                   
+                    continue;
+                }
+
+                if(IsPermutation(smallerArray, permutation.ToString()))
+                {
+                    Console.WriteLine(permutation.ToString());
+                }
+                
+                permutation.Remove(0, 1);
+                permutation.Append(larger[i]); 
+            }            
+        }
+
+        private static bool IsPermutation(int[] charCountArray, string input)
+        {
+            int[] temp = new int[256];
+            for(int i=0; i<input.Length; i++)
+            {
+                if(charCountArray[input[i]] == 0)
+                {
+                    return false;
+                }
+
+                temp[input[i]]++;
+            }
+
+            for(int i=0; i< temp.Length; i++)
+            {
+                if(temp[i] != charCountArray[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #endregion
+        
+        public static void CompareBinToHex(string binary, string hex)
+        {
+            int value1 = ConvertToDecimal(binary, 2);
+            int value2 = ConvertToDecimal(hex, 16);
+            if(value1 == value2)
+            {
+                Console.WriteLine("true");
+                return;
+            }
+
+            Console.WriteLine("false");
+        }
+
+        private static int ConvertToDecimal(string input, int baseVal)
+        {
+            if(baseVal < 2 || (baseVal > 10 && baseVal != 16))
+            {
+                return -1;
+            }
+
+            double sum = 0;
+            for(int i= input.Length - 1; i >= 0; i--)
+            {
+                int digit = input[i] - '0';
+                sum += input[i] * Math.Pow(baseVal, input.Length - i - 1);
+            }
+
+            return (int)sum;
+
+        }
+
+        public static void ConverToHex(string input)
+        {
+            char[] chars = input.ToCharArray();
+            foreach (char c in chars)
+            {
+                string hexOutput = string.Format("{0:X}", (int)c);
+            }
+
+        }      
     }
 }

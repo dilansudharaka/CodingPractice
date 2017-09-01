@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79C6AAF5-7192-49B2-9FE5-038AFE4A8AFE}</ProjectGuid>
+    <ProjectGuid>{BAF3A9B0-4A92-4538-807A-4A2C87D865E6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InterviewPractice</RootNamespace>
-    <AssemblyName>InterviewPractice</AssemblyName>
+    <RootNamespace>DataStructures_Algorithms</RootNamespace>
+    <AssemblyName>DataStructures_Algorithms</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,20 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array.cs" />
-    <Compile Include="BinaryTree.cs" />
-    <Compile Include="Linklist.cs" />
-    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringManipulations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture01\MIT6_006F11_ps1_sol.pdf" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture01\ps1.zip" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture01\Q1_MIT6_006F11_ps1.pdf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Notes.html" />
-    <Content Include="Notes.txt" />
+    <Content Include="questions.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterviewPractice
 {
-    class BinaryTree
+    public class BinaryTree
     {
         public BinaryTree(int val)
         {
@@ -67,8 +67,61 @@ namespace InterviewPractice
             }
 
             Queue<BinaryTree> treeQueue = new Queue<BinaryTree>();
-
-
         }
+
+        #region RemoveHalfNodes
+        /// <summary>
+        /// http://www.geeksforgeeks.org/given-a-binary-tree-how-do-you-remove-all-the-half-nodes/
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static BinaryTree RemoveHalfNodes(BinaryTree root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            root.Left = RemoveHalfNodes(root.Left);
+            root.Right = RemoveHalfNodes(root.Right);
+
+            if ((root.Left == null && root.Right == null)
+            || (root.Left != null && root.Right != null))
+            {
+                return root;
+            }
+            else if (root.Left == null)
+            {
+                return root.Right;
+            }
+            else return root.Left;
+        }
+        #endregion
+
+#region Get Kth Largest
+        public static void GetKthLargestElement(BinaryTree root, ref int k)
+        {
+            if (root == null || k < 0)
+            {
+                return;
+            }
+
+            if (root.Left != null)
+            {
+                GetKthLargestElement(root.Left, ref k);
+            }
+
+            if (--k == 0)
+            {
+                Console.WriteLine(root.Value);
+                return;
+            }
+
+            if (root.Right != null)
+            {
+                GetKthLargestElement(root.Right, ref k);
+            }
+        }
+        #endregion;
     }
 }

@@ -10,9 +10,18 @@ namespace InterviewPractice
     {
         static void Main(string[] args)
         {
+            int x = Convert.ToInt32("11011", 2);
+            int count = 0;
+            while(x > 0)
+            {
+                x = x & (x - 1);
+                count++;
+            }
+
             //StringOperations.Go();
-            //ArrayOperations.Go
-            LinkListOperations.Go();
+            //ArrayOperations.Go();
+            // LinkListOperations.Go();
+            TreeOperations.Go();
         }
 
         private class TreeOperations
@@ -20,12 +29,12 @@ namespace InterviewPractice
             public static void Go()
             {
                 BinaryTree binaryTree = BinaryTree.CreateFromList(new List<int> { 10, 20, 5, 2, 100, 70, 34 });
-
+                int k = 3;
+                BinaryTree.GetKthLargestElement(binaryTree, ref k);
             }
         }
         private class StringOperations
         {
-
             public static void Go()
             {
                 // StringManipulations.DisplayPermutaions("ABCD");
@@ -45,7 +54,11 @@ namespace InterviewPractice
 
                 //string longestPalindrome = StringManipulations.GetLongestPalindromicSubstring("forgeeksskeegfor");
 
-                StringManipulations.PrintAllPossibleStringMadeUsingSpaces("ABCD");
+                //StringManipulations.PrintAllPossibleStringMadeUsingSpaces("ABCD");
+
+                // StringManipulations.PrintAllPermutationsOfSmallerString("abbc", "cbabadcbbabbcbabaabccbabc");
+
+                StringManipulations.ConverToHex("Hello World");
             }
         }
 
@@ -77,7 +90,17 @@ namespace InterviewPractice
 
                 // Array.FindSymmetricPair_2(new int[,] { { 11, 20 }, { 30, 40 }, { 5, 10 }, { 40, 30 }, { 10, 5 } });//
 
-                Array.FindMaxSubArrayWithKLength(new int[] { 1, 12, -5, -6, 50, 3 }, 4);
+                //Array.FindMaxSubArrayWithKLength(new int[] { 1, 12, -5, -6, 50, 3 }, 4);
+
+               // Array.QuickSort(new int[] { 10, 7, 8, 9, 1, 5 });
+
+               // Array.QuickSortIterative(new int[] { 10, 7, 8, 9, 1, 5 }, 0, 5);
+
+                //Array.MergeSort(new int[] { 12, 11, 13, 5, 6, 7 });
+
+               // Array.MergeSortIterative(new int[] { 12, 11, 13, 5, 6, 7 });
+
+                Array.IsValueFoundInSortedArray(new int[,] { { 1, 3, 5 }, { 7, 9, 11 }, { 13, 15, 17 } }, 17);
             }
         }
     }

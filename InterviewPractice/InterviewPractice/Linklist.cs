@@ -159,5 +159,84 @@ namespace InterviewPractice
 
             root = prev;
         }
+
+        public static void PartitionOverX(ListNode<T> root, T x)
+        {
+            if(root == null)
+            {
+                return;
+            }
+
+            ListNode<T> tail = root;
+            while(tail != null && tail.Next != null)
+            {
+                tail = tail.Next;
+            }
+
+            ListNode<T> current = root;
+            ListNode<T> prev = null;
+            while(current != null && current.Next != null)
+            {
+                if(current.Value.CompareTo(x) >= 0)
+                {
+                    if(current == root)
+                    {
+                        root = current.Next;
+                        tail.Next = current;
+                        current.Next = null;
+                        current = root;
+                        tail = tail.Next;                    
+                    }
+                    else
+                    {
+                        prev.Next = current.Next;
+                        tail.Next = current;
+                        tail = tail.Next;
+                        current.Next = null;
+                        current = prev.Next;
+                    }
+                }
+                else
+                {
+                    prev = current;
+                    current = current.Next;
+                }
+            }
+        }
+
+        #region Convert BST into DLL
+        private static ListNode<int> ConvertBSTintoDLLRecursive(BinaryTree root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            ListNode<int> temp = new ListNode<int>(root.Value);
+            if (root.Left != null)
+            {
+                ListNode<int> leftDLL = ConvertBSTintoDLLRecursive(root.Left);
+                if (leftDLL != null)
+                {
+                    leftDLL.Next = temp;
+                }
+
+                temp.Previous = leftDLL;
+            }
+
+            if (root.Right != null)
+            {
+                ListNode<int> rightDLL = ConvertBSTintoDLLRecursive(root.Right);
+                temp.Next = rightDLL;
+                if (rightDLL != null)
+                {
+                    rightDLL.Previous = temp;
+                }
+
+            }
+
+            return temp;
+        }
+        #endregion
     }
 }

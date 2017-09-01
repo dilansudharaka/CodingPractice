@@ -1,0 +1,19 @@
+﻿#1. QuickSort recursive Algorithm
+General
+- inplace algorithm.
+- No extra memory used.
+- O(NLog(N))
+-Worst Case O(n2)
+
+Improvements.
+- Using last index as the pivot may give the worst results when the array is already sorted.To avoid that
+  by selecting a random index as the pivot or chosing the median of the first, middle and the last element 
+  of the partition for the pivot.
+- To reduce the recursion depth, recur first for the smaller half of the array and then do the other part.
+- Function uses call stack to store intermeditate results. Function call stack stored other bookkeeping information
+  along with the programdata as well as resuming executions.
+  To avoid the use of funtion call stack we can implement PArtition function using a stack.
+
+
+
+

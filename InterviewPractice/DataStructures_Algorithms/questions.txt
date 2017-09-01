@@ -1,0 +1,15 @@
+﻿#1: Find a Peak of one dimensional array.
+   eg: {a,b,c,d,e,f,g,h}  where a,b.... are numbers positive negative or 0.
+   b is a peak if b>= a & b>=c
+   h is a peak if h>= g
+
+   for linear version T(n) = Theta(n)
+   for divide and conquer T(n) = log(n)
+
+   Try this for 1M elements.
+
+   #2. Find a peak of 2 D array. n x m array(n rows and m columns)
+   it has a peak if  a>= b, a>=c, a>=d, a>=e
+     {    b  .}
+	 {  c,a,d.}
+	 {....e...}

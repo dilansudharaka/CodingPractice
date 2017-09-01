@@ -265,5 +265,187 @@ namespace InterviewPractice
             }
         }
         #endregion
+
+        #region RecursiveQuickSort
+        public static void QuickSort(int[] input)
+        {
+            QuickSortRecursive(input, 0, input.Length - 1);
+        }
+
+        private static void QuickSortRecursive(int[] input, int start, int end)
+        {
+            if(start < end)
+            {
+                int pivot = Partition(input, start, end);
+                QuickSortRecursive(input, start, pivot - 1);
+                QuickSortRecursive(input, pivot + 1, end);
+            }
+        }
+
+        private static int Partition(int[] input, int start, int end)
+        {
+            int pivot = input[end];
+            int i = start;
+            for(int j = i; j< end; j++)
+            {
+                if(input[j] <= pivot)
+                {
+                    Swap(input, j, i);
+                    i++;
+                }
+            }
+
+            Swap(input, i, end);
+            return i;
+        }
+
+        private static void Swap(int[] input, int first, int second)
+        {
+            int temp = input[first];
+            input[first] = input[second];
+            input[second] = temp;
+        }
+        #endregion
+
+        #region IterativeQuickSort
+        public static void QuickSortIterative(int[] input, int startIndex, int end)
+        {
+            Stack<int> stack = new Stack<int>();
+            stack.Push(startIndex);
+            stack.Push(end);
+            while(stack.Count > 0)
+            {
+                int high = stack.Pop();
+                int low = stack.Pop();
+
+                int pivot = Partition(input, low, high);
+                if(pivot-low > 1)
+                {
+                    stack.Push(low);
+                    stack.Push(pivot - 1);
+                }
+
+                if(end-pivot > 1)
+                {
+                    stack.Push(pivot + 1);
+                    stack.Push(end);
+                }
+            }
+        }
+        #endregion
+
+        #region Recursive MergeSort
+        public static void MergeSort(int[] input)
+        {
+            MergeSortRecursive(input, 0, input.Length - 1);
+        }
+
+        private static void MergeSortRecursive(int[] input, int startIndex, int end)
+        {
+            int length = end - startIndex + 1;
+            if(length <= 1)
+            {
+                return;
+            }
+
+            int mid = startIndex + length / 2;
+            MergeSortRecursive(input, startIndex, mid - 1);
+            MergeSortRecursive(input, mid, end);
+            Merge(input, startIndex, end, mid);
+        }
+
+        private static void Merge(int[] input, int startIndex, int endIndex, int midIndex)
+        {
+            int[] left = new int[midIndex - startIndex];
+            int[] right = new int[endIndex - midIndex + 1];
+            for(int i= startIndex, j=0; i<midIndex; i++)
+            {
+                left[j++] = input[i];
+            }
+
+            for(int i= midIndex, j=0; i<=endIndex; i++)
+            {
+                right[j++] = input[i];
+            }
+
+            int temp = startIndex;
+            int iLeft = 0;
+            int iRight = 0;
+            while(iLeft < left.Length && iRight < right.Length)
+            {
+                if(left[iLeft] <= right[iRight])
+                {
+                    input[temp++] = left[iLeft++];
+                }
+                else
+                {
+                    input[temp++] = right[iRight++];
+                }
+            }
+
+            while(iLeft < left.Length)
+            {
+                input[temp++] = left[iLeft++];
+            }
+
+            while(iRight < right.Length)
+            {
+                input[temp++] = right[iRight++];
+            }
+        }
+        #endregion
+
+        #region MergeSort Iterative
+        public static void MergeSortIterative(int[] input)
+        {
+            for(int currentSize = 2; currentSize<input.Length-1; currentSize = currentSize*2)
+            {
+                for(int left= 0; left < input.Length; left = left + currentSize)
+                {
+                    int length = currentSize;
+                    int mid = left + currentSize / 2;
+                    int end = Math.Min(left + currentSize, input.Length - 1);
+                    Merge(input, left, end, mid);
+                }
+            }
+        }
+        #endregion
+
+        #region IsValueFound In sorted MAtrix.
+        public static bool IsValueFoundInSortedArray(int[,] inputArray, int value)
+        {
+            if (inputArray == null || inputArray.Length == 0)
+            {
+                return false;
+            }
+
+            int xCount = inputArray.GetLength(1);
+            int yCount = inputArray.GetLength(0);
+            for (int i = 0, j = 0; i < yCount && j < xCount;)
+            {
+                if (inputArray[i, j] == value)
+                {
+                    return true;
+                }
+
+                if (value > inputArray[i, j])
+                {
+                    if (value <= inputArray[i, xCount - 1])
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                
+            }
+
+            return false;
+        }
+        #endregion
+
     }
 }
+
