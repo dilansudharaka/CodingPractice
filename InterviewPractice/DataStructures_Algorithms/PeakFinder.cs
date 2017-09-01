@@ -26,9 +26,9 @@ namespace DataStructures_Algorithms
             arr = new int[] { 1, 1, 1, 1 };
             Console.WriteLine(PeakFinder.FindPeak(arr, 0, arr.Length));
 
-            arr = new int[1000000000];
+            arr = new int[100000000];
             Random r = new Random();
-            for (int i = 0; i < 1000000000; i++)
+            for (int i = 0; i < 100000000 ; i++)
             {
                 arr[i] = i;
             }
@@ -85,32 +85,20 @@ namespace DataStructures_Algorithms
             }
 
             int midIndex = (startIndex + endIndex) / 2;
-            if(midIndex > 0 && midIndex < array.Length - 1)
+            if((midIndex == 0 || array[midIndex-1] <= array[midIndex]) 
+                && (midIndex == array.Length -1 || array[midIndex] >= array[midIndex + 1]))
             {
-                if (array[midIndex] >= array[midIndex - 1] && array[midIndex] >= array[midIndex + 1])
-                {
-                    return array[midIndex];
-                }
-
-                if (array[midIndex - 1] >= array[midIndex + 1])
-                {
-                    return FindPeak(array, startIndex, midIndex - 1);
-                }
-                else
-                {
-                    return FindPeak(array, midIndex + 1, endIndex);
-                }
+                return array[midIndex];
             }
 
-            if(midIndex == array.Length - 1)
+            if (midIndex > 0 && array[midIndex - 1] > array[midIndex])
             {
-                if(array[midIndex] >= array[midIndex -1 ])
-                {
-                    return array[midIndex];
-                }
+                return FindPeak(array, startIndex, midIndex - 1);
             }
-
-            return -1;            
+            else
+            {
+                return FindPeak(array, midIndex + 1, endIndex);
+            }     
         }
     }
 }
