@@ -9,7 +9,7 @@ namespace DataStructures_Algorithms
 {
     internal class PeakFinder
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             int[] arr = { 10 };
             Console.WriteLine(PeakFinder.Find1DPeak(arr));
@@ -83,7 +83,6 @@ namespace DataStructures_Algorithms
             }
 
             return input[midIndex];
-        }
-        
+        }       
     }
 }
