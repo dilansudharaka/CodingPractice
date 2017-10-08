@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2DPeakFinder.cs" />
+    <Compile Include="DocumentDistance.cs" />
     <Compile Include="PeakFinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,14 @@
     <None Include="SupportMaterials\MIT Lectures\Lecture01\MIT6_006F11_ps1_sol.pdf" />
     <None Include="SupportMaterials\MIT Lectures\Lecture01\ps1.zip" />
     <None Include="SupportMaterials\MIT Lectures\Lecture01\Q1_MIT6_006F11_ps1.pdf" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist1.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist2.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist3.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist4.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist5.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist6.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist7.py" />
+    <None Include="SupportMaterials\MIT Lectures\Lecture02\docdist8.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="questions.txt" />

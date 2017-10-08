@@ -8,16 +8,17 @@ namespace DataStructures_Algorithms
 {
     public class _2DPeakFinder
     {
-        public static void Main(string[] args)
+        public static void Main1(string[] args)
         {
             int[,] arr = { { 10, 13, 30, 40, 68 }};
             Console.WriteLine(Find2DPeak(arr));
 
-            arr = new int[,]{ { 10, 13, 30, 40, 68 },
-                     { 12, 18, 16, 39, 36 },
-                           { 54, 16, 12, 28 , 29},
-                           { 10, 8, 14, 10, 70 }
-            };
+            arr = new int[,]{ 
+                              { 10, 13, 30, 40, 68 },
+                              { 12, 18, 16, 39, 36 },
+                              { 54, 16, 12, 28, 29},
+                              { 10, 8, 14, 10, 70 }
+                            };
             Console.WriteLine(Find2DPeak(arr));
         }
 
