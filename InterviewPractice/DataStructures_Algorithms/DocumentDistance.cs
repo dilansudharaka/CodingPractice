@@ -8,7 +8,7 @@ namespace DataStructures_Algorithms
 {
     public class DocumentDistance
     {
-        public static void Main(string[] args)
+        public static void Main1(string[] args)
         {
             string doc1 = "My name is dilan hewage.";
             string doc2 = doc1;
