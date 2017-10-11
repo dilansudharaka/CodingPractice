@@ -8,7 +8,7 @@ namespace DataStructures_Algorithms
 {
     public class MergeSortAlgorithm
     {
-        public static void Main(string[] args)
+        public static void Main1(string[] args)
         {
             int[] arr = { 2, 3, 100, 4, 8, 30, 45, 23, 12, -1, 6 };
             int[] modified = MergeSort(arr);

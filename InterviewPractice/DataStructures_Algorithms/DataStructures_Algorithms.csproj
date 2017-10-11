@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="2DPeakFinder.cs" />
     <Compile Include="DocumentDistance.cs" />
+    <Compile Include="HeapSort.cs" />
     <Compile Include="InsertionSortAlgorithm.cs" />
     <Compile Include="MergeSort.cs" />
     <Compile Include="PeakFinder.cs" />
