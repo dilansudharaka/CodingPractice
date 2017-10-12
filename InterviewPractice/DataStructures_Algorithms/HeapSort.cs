@@ -8,7 +8,7 @@ namespace DataStructures_Algorithms
 {
     public class HeapSortAlgorithm
     {
-        public static void Main(string[] args)
+        public static void Main1(string[] args)
         {
             int[] arr = { 2, 3, 10, 4, -1, 6, 3, 1, 0, 100 };
             HeapSort(arr);
